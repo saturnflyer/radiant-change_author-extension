@@ -1,4 +1,4 @@
-- if current_user.admin? && config['roles.pages.allow_author_change'] == true
+- if current_user.admin? && config['roles.pages.allow_author_change'] == 'true'
   %p#created_by_id
     = label :page, :created_by_id, "Author"
     = collection_select :page, :created_by_id, User.find(:all), :id, :name
