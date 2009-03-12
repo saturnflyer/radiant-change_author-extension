@@ -14,6 +14,11 @@ class ChangeAuthorExtension < Radiant::Extension
     if admin.respond_to?(:help)
       admin.help.index.add :page_type, "author_select"  
     end
+    UserActionObserver.class_eval {
+      def before_create(model)
+        model.created_by = @@current_user if model.created_by_id.blank?
+      end
+    }
   end
   
   def deactivate
