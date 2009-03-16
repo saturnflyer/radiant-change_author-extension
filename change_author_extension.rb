@@ -16,7 +16,7 @@ class ChangeAuthorExtension < Radiant::Extension
     end
     UserActionObserver.class_eval {
       def before_create(model)
-        model.created_by = @@current_user if model.created_by_id.blank?
+        model.created_by = UserActionObserver.current_user if model.created_by_id.blank?
       end
     }
   end
