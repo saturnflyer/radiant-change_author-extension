@@ -1,16 +1,16 @@
 # Uncomment this if you reference any of your controllers in activate
-# require_dependency 'application'
+require "radiant-change_author-extension"
 
 class ChangeAuthorExtension < Radiant::Extension
-  version "1.0"
-  description "Allows administrators to change the author of a page."
-  url "http://saturnflyer.com/"
+  version RadiantChangeAuthorExtension::VERSION
+  description RadiantChangeAuthorExtension::DESCRIPTION
+  url RadiantChangeAuthorExtension::URL
   
   def activate
     if ActiveRecord::Base.connection.tables.include?('config')
       Radiant::Config['roles.pages.allow_author_change'] = true unless Radiant::Config['roles.pages.allow_author_change']
     end
-    admin.page.edit.add :form, 'author_select'
+    admin.pages.edit.add :layout, "author_select", :after => "edit_published_at"
     if admin.respond_to?(:help)
       admin.help.index.add :page_type, "author_select"  
     end
