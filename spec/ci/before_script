@@ -6,9 +6,10 @@ then
   git fetch
   git checkout -t origin/$RADIANT_VERSION
 fi
+pwd
 cp -r ~/builds/*/radiant-change_author-extension vendor/extensions/change_author
 gem install bundler --pre
-echo gemspec >> Gemfile
+echo 'gemspec' >> Gemfile
 echo 'gem "radiant-change_author-extension", :path => "vendor/extensions/change_author"' >> Gemfile
 bundle install
 
