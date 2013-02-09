@@ -10,6 +10,7 @@ cp -r ~/builds/*/radiant-change_author-extension vendor/extensions/change_author
 gem install bundler --pre
 echo gemspec >> Gemfile
 bundle install
+bundle update rack
 
 case $DB in
   "mysql" )
