@@ -7,10 +7,12 @@ then
   git checkout -t origin/$RADIANT_VERSION
 fi
 pwd
+ls vendor/extensions
 cp -r ~/builds/*/radiant-change_author-extension vendor/extensions/change_author
 gem install bundler --pre
 echo 'gemspec' >> Gemfile
 echo 'gem "radiant-change_author-extension", :path => "vendor/extensions/change_author"' >> Gemfile
+cat Gemfile
 bundle install
 
 case $DB in
