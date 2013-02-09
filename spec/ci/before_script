@@ -4,7 +4,7 @@ cd ~/radiant
 if [[ $RADIANT_VERSION != "master" ]]
 then
   git fetch
-  git checkout -b $RADIANT_VERSION $RADIANT_VERSION
+  git checkout -t origin/$RADIANT_VERSION
 fi
 cp -r ~/builds/*/radiant-change_author-extension vendor/extensions/change_author
 gem install bundler --pre
