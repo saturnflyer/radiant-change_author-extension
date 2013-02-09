@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = RadiantChangeAuthorExtension::URL
   s.summary     = RadiantChangeAuthorExtension::SUMMARY
   s.description = RadiantChangeAuthorExtension::DESCRIPTION
-  
+
   ignores = if File.exist?(".gitignore")
     File.read(".gitignore").split("\n").inject([]) {|a,p| a + Dir[p] }
   else
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   # s.add_dependency "some_gem", "~> 1.0.0"
 
   s.post_install_message = %{
-  Add this to your radiant project with:
-    config.gem "radiant-change_author-extension", :version => "~> #{RadiantChangeAuthorExtension::VERSION}"
+  Add the Change Author Extension to your Radiant CMS project with:
+    gem "radiant-change_author-extension", "~> #{RadiantChangeAuthorExtension::VERSION}"
   }
 end
